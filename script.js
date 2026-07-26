@@ -1,56 +1,80 @@
 /* =========================================
-   PAGE LOADER
+   INITIALIZE
 ========================================= */
 
-window.addEventListener("load", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    setTimeout(() => {
+        AOS.init({
 
-        document
-            .getElementById("page-loader")
-            .classList
-            .add("hide");
+            duration: 900,
 
-    }, 1200);
+            easing: "ease-out-cubic",
 
-});
+            once: true,
 
+            offset: 80
 
-/* =========================================
-   AOS
-========================================= */
+        });
 
-AOS.init({
-
-    duration: 1000,
-
-    easing: "ease-out-cubic",
-
-    once: true,
-
-    offset: 100
-
-});
-
-
-/* =========================================
-   GUEST NAME FROM URL
-========================================= */
-
-const params = new URLSearchParams(
-    window.location.search
+    }
 );
 
-const guestName =
-    params.get("to");
+
+/* =========================================
+   PRELOADER
+========================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => {
+
+                document
+                    .getElementById("preloader")
+                    .classList
+                    .add("hide");
+
+            },
+            1500
+        );
+
+    }
+);
 
 
-if (guestName) {
+/* =========================================
+   GUEST NAME
+========================================= */
 
-    document
-        .getElementById("guestName")
-        .textContent =
-        decodeURIComponent(guestName);
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const guest =
+    urlParams.get("to");
+
+
+const guestElement =
+    document.getElementById(
+        "guestName"
+    );
+
+
+if (guest) {
+
+    guestElement.textContent =
+        decodeURIComponent(guest);
+
+} else {
+
+    guestElement.textContent =
+        "YOUR NAME";
 
 }
 
@@ -59,41 +83,39 @@ if (guestName) {
    OPEN INVITATION
 ========================================= */
 
-const openInvitation =
+const openButton =
     document.getElementById(
         "openInvitation"
     );
+
 
 const opening =
     document.getElementById(
         "opening"
     );
 
+
 const mainContent =
     document.getElementById(
         "mainContent"
     );
 
-const weddingMusic =
+
+const music =
     document.getElementById(
         "weddingMusic"
     );
 
 
-openInvitation.addEventListener(
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+
+openButton.addEventListener(
     "click",
     () => {
-
-        weddingMusic
-            .play()
-            .catch(() => {
-
-                console.log(
-                    "Browser memblokir autoplay."
-                );
-
-            });
-
 
         opening.classList.add(
             "hide"
@@ -105,17 +127,51 @@ openInvitation.addEventListener(
         );
 
 
-        document.body.classList.remove(
-            "locked"
-        );
+        music.play()
+            .then(
+                () => {
+
+                    musicButton.classList.add(
+                        "playing"
+                    );
+
+                }
+            )
+            .catch(
+                () => {}
+            );
+
+    }
+);
 
 
-        setTimeout(() => {
+/* =========================================
+   MUSIC
+========================================= */
 
-            opening.style.display =
-                "none";
+musicButton.addEventListener(
+    "click",
+    () => {
 
-        }, 1500);
+        if (
+            music.paused
+        ) {
+
+            music.play();
+
+            musicButton.classList.add(
+                "playing"
+            );
+
+        } else {
+
+            music.pause();
+
+            musicButton.classList.remove(
+                "playing"
+            );
+
+        }
 
     }
 );
@@ -134,30 +190,17 @@ const weddingDate =
 function updateCountdown() {
 
     const now =
-        new Date().getTime();
+        Date.now();
 
 
     const distance =
-        weddingDate - now;
+        weddingDate -
+        now;
 
 
-    if (distance <= 0) {
-
-        document.getElementById(
-            "days"
-        ).textContent = "00";
-
-        document.getElementById(
-            "hours"
-        ).textContent = "00";
-
-        document.getElementById(
-            "minutes"
-        ).textContent = "00";
-
-        document.getElementById(
-            "seconds"
-        ).textContent = "00";
+    if (
+        distance <= 0
+    ) {
 
         return;
 
@@ -173,27 +216,30 @@ function updateCountdown() {
 
     const hours =
         Math.floor(
-            (distance %
-                (1000 * 60 * 60 * 24))
-            /
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            ) /
             (1000 * 60 * 60)
         );
 
 
     const minutes =
         Math.floor(
-            (distance %
-                (1000 * 60 * 60))
-            /
+            (
+                distance %
+                (1000 * 60 * 60)
+            ) /
             (1000 * 60)
         );
 
 
     const seconds =
         Math.floor(
-            (distance %
-                (1000 * 60))
-            /
+            (
+                distance %
+                (1000 * 60)
+            ) /
             1000
         );
 
@@ -202,28 +248,28 @@ function updateCountdown() {
         "days"
     ).textContent =
         String(days)
-        .padStart(2, "0");
+            .padStart(2, "0");
 
 
     document.getElementById(
         "hours"
     ).textContent =
         String(hours)
-        .padStart(2, "0");
+            .padStart(2, "0");
 
 
     document.getElementById(
         "minutes"
     ).textContent =
         String(minutes)
-        .padStart(2, "0");
+            .padStart(2, "0");
 
 
     document.getElementById(
         "seconds"
     ).textContent =
         String(seconds)
-        .padStart(2, "0");
+            .padStart(2, "0");
 
 }
 
@@ -234,262 +280,6 @@ updateCountdown();
 setInterval(
     updateCountdown,
     1000
-);
-
-
-/* =========================================
-   GALLERY LIGHTBOX
-========================================= */
-
-const galleryItems =
-    document.querySelectorAll(
-        ".gallery-item img"
-    );
-
-
-const lightbox =
-    document.getElementById(
-        "lightbox"
-    );
-
-
-const lightboxImage =
-    document.getElementById(
-        "lightboxImage"
-    );
-
-
-const closeLightbox =
-    document.getElementById(
-        "closeLightbox"
-    );
-
-
-const prevImage =
-    document.getElementById(
-        "prevImage"
-    );
-
-
-const nextImage =
-    document.getElementById(
-        "nextImage"
-    );
-
-
-let currentImage = 0;
-
-
-const galleryImages =
-    Array.from(
-        galleryItems
-    );
-
-
-function showImage(index) {
-
-    if (
-        index < 0
-    ) {
-
-        index =
-            galleryImages.length - 1;
-
-    }
-
-
-    if (
-        index >=
-        galleryImages.length
-    ) {
-
-        index = 0;
-
-    }
-
-
-    currentImage = index;
-
-
-    lightboxImage.src =
-        galleryImages[
-            currentImage
-        ].src;
-
-}
-
-
-galleryItems.forEach(
-    (image, index) => {
-
-        image.addEventListener(
-            "click",
-            () => {
-
-                currentImage =
-                    index;
-
-                showImage(
-                    currentImage
-                );
-
-                lightbox.classList.add(
-                    "active"
-                );
-
-                document.body.style.overflow =
-                    "hidden";
-
-            }
-        );
-
-    }
-);
-
-
-closeLightbox.addEventListener(
-    "click",
-    closeGallery
-);
-
-
-function closeGallery() {
-
-    lightbox.classList.remove(
-        "active"
-    );
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-prevImage.addEventListener(
-    "click",
-    () => {
-
-        showImage(
-            currentImage - 1
-        );
-
-    }
-);
-
-
-nextImage.addEventListener(
-    "click",
-    () => {
-
-        showImage(
-            currentImage + 1
-        );
-
-    }
-);
-
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (
-            !lightbox.classList.contains(
-                "active"
-            )
-        ) return;
-
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            closeGallery();
-
-        }
-
-
-        if (
-            event.key === "ArrowLeft"
-        ) {
-
-            showImage(
-                currentImage - 1
-            );
-
-        }
-
-
-        if (
-            event.key === "ArrowRight"
-        ) {
-
-            showImage(
-                currentImage + 1
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   SWIPE LIGHTBOX MOBILE
-========================================= */
-
-let touchStartX = 0;
-
-
-lightbox.addEventListener(
-    "touchstart",
-    (event) => {
-
-        touchStartX =
-            event.changedTouches[0]
-                .screenX;
-
-    }
-);
-
-
-lightbox.addEventListener(
-    "touchend",
-    (event) => {
-
-        const touchEndX =
-            event.changedTouches[0]
-                .screenX;
-
-
-        const difference =
-            touchStartX -
-            touchEndX;
-
-
-        if (
-            Math.abs(difference)
-            < 50
-        ) return;
-
-
-        if (
-            difference > 0
-        ) {
-
-            showImage(
-                currentImage + 1
-            );
-
-        } else {
-
-            showImage(
-                currentImage - 1
-            );
-
-        }
-
-    }
 );
 
 
@@ -513,7 +303,7 @@ rsvpForm.addEventListener(
         const name =
             document.getElementById(
                 "rsvpName"
-            ).value;
+            ).value.trim();
 
 
         const attendance =
@@ -522,7 +312,7 @@ rsvpForm.addEventListener(
             ).value;
 
 
-        const count =
+        const guests =
             document.getElementById(
                 "guestCount"
             ).value;
@@ -531,34 +321,82 @@ rsvpForm.addEventListener(
         const message =
             document.getElementById(
                 "rsvpMessage"
-            ).value;
+            ).value.trim();
 
 
-        const text =
-`RSVP WEDDING ANANG & AMELIA
+        const rsvpData = {
 
-Nama: ${name}
-Kehadiran: ${attendance}
-Jumlah Tamu: ${count}
-Pesan: ${message}`;
+            id: Date.now(),
+
+            name,
+
+            attendance,
+
+            guests,
+
+            message,
+
+            date:
+                new Date()
+                    .toLocaleString(
+                        "id-ID"
+                    )
+
+        };
 
 
-        const whatsappNumber =
-            "6281234567890";
+        const existing =
+            JSON.parse(
+                localStorage.getItem(
+                    "weddingRSVP"
+                )
+            ) || [];
 
 
-        const whatsappURL =
-            "https://wa.me/" +
-            whatsappNumber +
-            "?text=" +
-            encodeURIComponent(
-                text
-            );
+        existing.unshift(
+            rsvpData
+        );
 
 
-        window.open(
-            whatsappURL,
-            "_blank"
+        localStorage.setItem(
+
+            "weddingRSVP",
+
+            JSON.stringify(
+                existing
+            )
+
+        );
+
+
+        saveRSVPToGuestbook(
+            rsvpData
+        );
+
+
+        document
+            .getElementById(
+                "rsvpSuccess"
+            )
+            .classList
+            .add("show");
+
+
+        rsvpForm.reset();
+
+
+        setTimeout(
+            () => {
+
+                document
+                    .getElementById(
+                        "rsvpSuccess"
+                    )
+                    .classList
+                    .remove("show");
+
+            },
+            5000
         );
 
     }
@@ -566,18 +404,78 @@ Pesan: ${message}`;
 
 
 /* =========================================
-   WEDDING WISHES
+   RSVP -> GUESTBOOK
+========================================= */
+
+function saveRSVPToGuestbook(
+    data
+) {
+
+    if (
+        !data.message
+    ) {
+
+        return;
+
+    }
+
+
+    const comments =
+        JSON.parse(
+            localStorage.getItem(
+                "weddingComments"
+            )
+        ) || [];
+
+
+    comments.unshift({
+
+        id: Date.now(),
+
+        name:
+            data.name,
+
+        text:
+            data.message,
+
+        attendance:
+            data.attendance,
+
+        guests:
+            data.guests,
+
+        date:
+            new Date()
+                .toLocaleString(
+                    "id-ID"
+                )
+
+    });
+
+
+    localStorage.setItem(
+
+        "weddingComments",
+
+        JSON.stringify(
+            comments
+        )
+
+    );
+
+
+    renderComments();
+
+}
+
+
+/* =========================================
+   WISH FORM
 ========================================= */
 
 const wishForm =
     document.getElementById(
         "wishForm"
-    );
-
-
-const wishesList =
-    document.getElementById(
-        "wishesList"
     );
 
 
@@ -591,74 +489,241 @@ wishForm.addEventListener(
         const name =
             document.getElementById(
                 "wishName"
-            ).value;
+            ).value.trim();
 
 
         const text =
             document.getElementById(
                 "wishText"
-            ).value;
+            ).value.trim();
 
 
-        const card =
-            document.createElement(
-                "article"
-            );
+        if (
+            !name ||
+            !text
+        ) {
+
+            return;
+
+        }
 
 
-        card.className =
-            "wish-card";
+        const comments =
+            JSON.parse(
+                localStorage.getItem(
+                    "weddingComments"
+                )
+            ) || [];
 
 
-        card.innerHTML = `
+        comments.unshift({
 
-            <p>
-                "${escapeHTML(text)}"
-            </p>
+            id: Date.now(),
 
-            <strong>
-                — ${escapeHTML(name)}
-            </strong>
+            name,
 
-        `;
+            text,
+
+            attendance:
+                "Pesan",
+
+            guests:
+                "",
+
+            date:
+                new Date()
+                    .toLocaleString(
+                        "id-ID"
+                    )
+
+        });
 
 
-        wishesList.prepend(
-            card
+        localStorage.setItem(
+
+            "weddingComments",
+
+            JSON.stringify(
+                comments
+            )
+
         );
 
 
         wishForm.reset();
+
+
+        renderComments();
 
     }
 );
 
 
 /* =========================================
-   HTML SECURITY
+   RENDER COMMENTS
+========================================= */
+
+function renderComments() {
+
+    const list =
+        document.getElementById(
+            "commentsList"
+        );
+
+
+    const count =
+        document.getElementById(
+            "commentCount"
+        );
+
+
+    const comments =
+        JSON.parse(
+            localStorage.getItem(
+                "weddingComments"
+            )
+        ) || [];
+
+
+    count.textContent =
+
+        comments.length +
+
+        (
+            comments.length === 1
+                ? " MESSAGE"
+                : " MESSAGES"
+        );
+
+
+    if (
+        comments.length === 0
+    ) {
+
+        list.innerHTML = `
+
+            <div class="empty-comments">
+
+                Jadilah orang pertama
+                yang meninggalkan pesan.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        comments
+            .map(
+                comment => {
+
+                    const status =
+
+                        comment.attendance ===
+                        "Hadir"
+
+                            ? `
+                                <div class="comment-status">
+                                    ✓ Attending ·
+                                    ${comment.guests}
+                                    Guest
+                                </div>
+                              `
+
+                            : comment.attendance ===
+                              "Tidak Hadir"
+
+                                ? `
+                                    <div class="comment-status">
+                                        ♡ Sending love from afar
+                                    </div>
+                                  `
+
+                                : "";
+
+
+                    return `
+
+                        <article class="comment">
+
+                            <div class="comment-top">
+
+                                <div class="comment-name">
+
+                                    ${escapeHTML(
+                                        comment.name
+                                    )}
+
+                                </div>
+
+                                <div class="comment-time">
+
+                                    ${escapeHTML(
+                                        comment.date
+                                    )}
+
+                                </div>
+
+                            </div>
+
+                            ${status}
+
+                            <div class="comment-text">
+
+                                ${escapeHTML(
+                                    comment.text
+                                )}
+
+                            </div>
+
+                        </article>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+renderComments();
+
+
+/* =========================================
+   ESCAPE HTML
 ========================================= */
 
 function escapeHTML(
-    value
+    text
 ) {
 
-    return value
+    return String(text)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
@@ -668,7 +733,7 @@ function escapeHTML(
 
 
 /* =========================================
-   COPY BANK ACCOUNT
+   COPY ACCOUNT
 ========================================= */
 
 const copyAccount =
@@ -677,95 +742,162 @@ const copyAccount =
     );
 
 
-const accountNumber =
-    document.getElementById(
-        "accountNumber"
-    );
-
-
-const copyMessage =
-    document.getElementById(
-        "copyMessage"
-    );
-
-
 copyAccount.addEventListener(
     "click",
     async () => {
 
+        const number =
+            document
+                .getElementById(
+                    "accountNumber"
+                )
+                .textContent
+                .trim();
+
+
         try {
 
-            await navigator.clipboard.writeText(
-                accountNumber.textContent.trim()
-            );
+            await navigator
+                .clipboard
+                .writeText(
+                    number
+                );
 
 
-            copyMessage.textContent =
+            document
+                .getElementById(
+                    "copyMessage"
+                )
+                .textContent =
                 "Nomor rekening berhasil disalin.";
 
+        } catch {
 
-            setTimeout(
-                () => {
-
-                    copyMessage.textContent =
-                        "";
-
-                },
-                2500
-            );
-
-
-        } catch (error) {
-
-            copyMessage.textContent =
+            document
+                .getElementById(
+                    "copyMessage"
+                )
+                .textContent =
                 "Gagal menyalin nomor rekening.";
 
         }
 
-    }
-);
 
+        setTimeout(
+            () => {
 
-/* =========================================
-   MENU DRAWER
-========================================= */
+                document
+                    .getElementById(
+                        "copyMessage"
+                    )
+                    .textContent =
+                    "";
 
-const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
-
-
-const menuDrawer =
-    document.getElementById(
-        "menuDrawer"
-    );
-
-
-const closeMenu =
-    document.getElementById(
-        "closeMenu"
-    );
-
-
-menuButton.addEventListener(
-    "click",
-    () => {
-
-        menuDrawer.classList.add(
-            "active"
+            },
+            3000
         );
 
     }
 );
 
 
-closeMenu.addEventListener(
-    "click",
-    () => {
+/* =========================================
+   LIGHTBOX
+========================================= */
 
-        menuDrawer.classList.remove(
-            "active"
+const galleryImages =
+    Array.from(
+        document.querySelectorAll(
+            ".gallery-item img"
+        )
+    );
+
+
+const lightbox =
+    document.getElementById(
+        "lightbox"
+    );
+
+
+const lightboxImage =
+    document.getElementById(
+        "lightboxImage"
+    );
+
+
+let currentImage = 0;
+
+
+function openLightbox(
+    index
+) {
+
+    currentImage =
+        index;
+
+
+    lightboxImage.src =
+        galleryImages[
+            currentImage
+        ].src;
+
+
+    lightbox.classList.add(
+        "active"
+    );
+
+}
+
+
+function changeImage(
+    direction
+) {
+
+    currentImage +=
+        direction;
+
+
+    if (
+        currentImage <
+        0
+    ) {
+
+        currentImage =
+            galleryImages.length - 1;
+
+    }
+
+
+    if (
+        currentImage >=
+        galleryImages.length
+    ) {
+
+        currentImage = 0;
+
+    }
+
+
+    lightboxImage.src =
+        galleryImages[
+            currentImage
+        ].src;
+
+}
+
+
+galleryImages.forEach(
+    (image, index) => {
+
+        image.addEventListener(
+            "click",
+            () => {
+
+                openLightbox(
+                    index
+                );
+
+            }
         );
 
     }
@@ -773,42 +905,120 @@ closeMenu.addEventListener(
 
 
 document
-    .querySelectorAll(
-        ".drawer-content a"
+    .getElementById(
+        "lightboxClose"
     )
-    .forEach(
-        link => {
+    .addEventListener(
+        "click",
+        () => {
 
-            link.addEventListener(
-                "click",
-                () => {
-
-                    menuDrawer
-                        .classList
-                        .remove(
-                            "active"
-                        );
-
-                }
+            lightbox.classList.remove(
+                "active"
             );
 
         }
     );
 
 
-/* =========================================
-   ACTIVE BOTTOM NAV
-========================================= */
+document
+    .getElementById(
+        "lightboxPrev"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-const navItems =
-    document.querySelectorAll(
-        ".bottom-nav .nav-item[href]"
+            changeImage(
+                -1
+            );
+
+        }
     );
 
+
+document
+    .getElementById(
+        "lightboxNext"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            changeImage(
+                1
+            );
+
+        }
+    );
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            !lightbox.classList.contains(
+                "active"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            lightbox.classList.remove(
+                "active"
+            );
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            changeImage(
+                1
+            );
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            changeImage(
+                -1
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   BOTTOM NAV ACTIVE
+========================================= */
 
 const sections =
     document.querySelectorAll(
         "section[id]"
+    );
+
+
+const navLinks =
+    document.querySelectorAll(
+        ".bottom-navigation a"
     );
 
 
@@ -823,14 +1033,14 @@ window.addEventListener(
         sections.forEach(
             section => {
 
-                const sectionTop =
-                    section.offsetTop
-                    - 300;
+                const top =
+                    section.offsetTop -
+                    300;
 
 
                 if (
                     window.scrollY >=
-                    sectionTop
+                    top
                 ) {
 
                     current =
@@ -842,22 +1052,22 @@ window.addEventListener(
         );
 
 
-        navItems.forEach(
-            item => {
+        navLinks.forEach(
+            link => {
 
-                item.classList.remove(
+                link.classList.remove(
                     "active"
                 );
 
 
                 if (
-                    item.getAttribute(
+                    link.getAttribute(
                         "href"
                     ) ===
                     "#" + current
                 ) {
 
-                    item.classList.add(
+                    link.classList.add(
                         "active"
                     );
 
@@ -865,34 +1075,6 @@ window.addEventListener(
 
             }
         );
-
-    }
-);
-
-
-/* =========================================
-   PARALLAX
-========================================= */
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        const hero =
-            document.querySelector(
-                ".hero-image"
-            );
-
-
-        if (!hero) return;
-
-
-        const scroll =
-            window.scrollY;
-
-
-        hero.style.transform =
-            `translateY(${scroll * .2}px) scale(1.05)`;
 
     }
 );
