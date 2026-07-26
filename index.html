@@ -4,49 +4,65 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#0b0b0b">
+    <meta name="theme-color"
+          content="#f5efe5">
 
     <meta name="description"
-          content="The Wedding of Anang & Amelia — 18 August 2026">
+          content="The Wedding of Budi Santoso & Leta">
 
-    <title>Anang & Amelia — The Wedding</title>
+    <title>Budi Santoso & Leta — The Wedding</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONT -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
           rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- AOS -->
     <link rel="stylesheet"
           href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-    <!-- Icons -->
+    <!-- CSS -->
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+          href="style.css">
 </head>
 
 <body>
 
 <!-- =========================================
-     PAGE LOADER
+     PRELOADER
 ========================================= -->
 
-<div id="page-loader">
+<div id="preloader">
 
-    <div class="loader-content">
+    <div class="preloader-inner">
 
-        <div class="loader-ring"></div>
+        <div class="preloader-flower">
+            ✦
+        </div>
 
-        <span>ELEGANCE</span>
+        <div class="preloader-names">
+            BUDI <span>&</span> LETA
+        </div>
 
-        <small>nama & nama</small>
+        <div class="loader-line">
+            <div></div>
+        </div>
+
+        <small>
+            OUR BEAUTIFUL BEGINNING
+        </small>
 
     </div>
 
@@ -58,57 +74,83 @@
 ========================================= -->
 
 <audio id="weddingMusic"
-       src="assets/music/wedding-song.mp3"
+       src="assets/music/wedding.mp3"
        loop>
 </audio>
 
 
 <!-- =========================================
-     OPENING COVER
+     MUSIC BUTTON
 ========================================= -->
 
-<section id="opening" class="opening">
+<button id="musicButton"
+        class="music-button">
 
-    <div class="opening-bg"></div>
+    <i class="fa-solid fa-volume-high"></i>
+
+</button>
+
+
+<!-- =========================================
+     OPENING
+========================================= -->
+
+<section id="opening"
+         class="opening">
+
+    <div class="opening-background"></div>
 
     <div class="opening-overlay"></div>
 
+    <div class="opening-decoration decoration-top">
+        ✦
+    </div>
+
     <div class="opening-content">
 
-        <p class="eyebrow">
+        <p class="small-label">
             THE WEDDING OF
         </p>
 
-        <h1>
-            nama
-            <span>&</span>
-            nama
-        </h1>
+        <div class="opening-names">
 
-        <div class="opening-date">
-            18 <i></i> 08 <i></i> 2026
+            <h1>
+                BUDI
+                <span>SANTOSO</span>
+            </h1>
+
+            <div class="ampersand">
+                &
+            </div>
+
+            <h1>
+                LETA
+            </h1>
+
         </div>
 
-        <div class="guest-box">
+        <div class="opening-date">
+            18 <span>•</span> 08 <span>•</span> 2026
+        </div>
 
-            <p>
-                Kepada Yth.
-            </p>
+        <div class="guest-wrapper">
 
-            <strong>
-                Bapak/Ibu/Saudara/i
-            </strong>
+            <span>
+                WITH LOVE FOR
+            </span>
 
             <h3 id="guestName">
-                Nama Tamu
+                YOUR NAME
             </h3>
 
         </div>
 
         <button id="openInvitation"
-                class="gold-button">
+                class="luxury-button">
 
-            <span>BUKA UNDANGAN</span>
+            <span>
+                OPEN INVITATION
+            </span>
 
             <i class="fa-solid fa-arrow-right"></i>
 
@@ -116,14 +158,18 @@
 
     </div>
 
+    <div class="opening-decoration decoration-bottom">
+        ✦
+    </div>
+
 </section>
 
 
 <!-- =========================================
-     MAIN WEBSITE
+     MAIN
 ========================================= -->
 
-<main id="mainContent" class="main-content">
+<main id="mainContent">
 
 
 <!-- =========================================
@@ -131,58 +177,120 @@
 ========================================= -->
 
 <section id="home"
-         class="hero section-dark">
+         class="hero">
 
     <div class="hero-image"></div>
 
-    <div class="hero-overlay"></div>
+    <div class="hero-gradient"></div>
 
     <div class="hero-content">
 
-        <p class="eyebrow"
+        <p class="hero-kicker"
            data-aos="fade-up">
 
             WE ARE GETTING MARRIED
 
         </p>
 
-        <h1 data-aos="fade-up"
+        <h2 data-aos="fade-up"
             data-aos-delay="150">
 
-            nama
+            Budi Santoso
 
-            <span>&</span>
+            <i>&</i>
 
-            nama
+            Leta
 
-        </h1>
+        </h2>
 
-        <p class="hero-date"
+        <div class="hero-date"
+             data-aos="fade-up"
+             data-aos-delay="300">
+
+            18 AUGUST 2026
+
+        </div>
+
+        <p class="hero-description"
            data-aos="fade-up"
-           data-aos-delay="300">
+           data-aos-delay="450">
 
-            18.08.2026
+            Two hearts, one promise,
+            <br>
+            and a lifetime to go.
 
         </p>
 
-        <div class="hero-quote"
-             data-aos="fade-up"
-             data-aos-delay="450">
+    </div>
 
-            "Two souls, one heart,
-            <br>
-            one beautiful journey."
+    <div class="hero-scroll">
+
+        <span>
+            SCROLL TO DISCOVER
+        </span>
+
+        <div></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="intro section-cream">
+
+    <div class="ornament ornament-left">
+        ❦
+    </div>
+
+    <div class="container narrow">
+
+        <div class="intro-content"
+             data-aos="fade-up">
+
+            <span class="section-label">
+                A LITTLE LOVE STORY
+            </span>
+
+            <h2>
+                Some stories are written
+                <i>by fate.</i>
+            </h2>
+
+            <p>
+
+                Ada begitu banyak cerita yang telah kami lalui.
+                Dari sebuah pertemuan sederhana, tumbuh sebuah rasa
+                yang perlahan membawa kami pada satu keyakinan:
+
+            </p>
+
+            <blockquote>
+
+                bahwa rumah terbaik adalah
+                tempat di mana kita menemukan
+                seseorang untuk pulang.
+
+            </blockquote>
+
+            <p>
+
+                Dengan penuh rasa syukur,
+                kami mengundang Anda untuk menjadi
+                bagian dari hari yang begitu berarti
+                dalam perjalanan cinta kami.
+
+            </p>
 
         </div>
 
-        <div class="scroll-down">
+    </div>
 
-            <span>SCROLL TO EXPLORE</span>
-
-            <i class="fa-solid fa-chevron-down"></i>
-
-        </div>
-
+    <div class="ornament ornament-right">
+        ❦
     </div>
 
 </section>
@@ -192,65 +300,84 @@
      COUNTDOWN
 ========================================= -->
 
-<section id="countdown"
-         class="countdown-section section-dark">
+<section class="countdown-section">
 
     <div class="container">
 
-        <div class="section-heading"
+        <div class="section-title"
              data-aos="fade-up">
 
-            <span>THE BIG DAY</span>
+            <span>
+                SAVE THE DATE
+            </span>
 
             <h2>
-                Counting Every Moment
+                Until We Say
+                <i>"I Do"</i>
             </h2>
 
         </div>
 
+        <div class="countdown"
+             data-aos="fade-up">
 
-        <div class="countdown-grid">
-
-            <div class="count-box">
+            <div class="count-item">
 
                 <strong id="days">
                     00
                 </strong>
 
-                <span>DAYS</span>
+                <span>
+                    DAYS
+                </span>
 
             </div>
 
+            <div class="count-divider">
+                :
+            </div>
 
-            <div class="count-box">
+            <div class="count-item">
 
                 <strong id="hours">
                     00
                 </strong>
 
-                <span>HOURS</span>
+                <span>
+                    HOURS
+                </span>
 
             </div>
 
+            <div class="count-divider">
+                :
+            </div>
 
-            <div class="count-box">
+            <div class="count-item">
 
                 <strong id="minutes">
                     00
                 </strong>
 
-                <span>MINUTES</span>
+                <span>
+                    MINUTES
+                </span>
 
             </div>
 
+            <div class="count-divider">
+                :
+            </div>
 
-            <div class="count-box">
+            <div class="count-item">
 
                 <strong id="seconds">
                     00
                 </strong>
 
-                <span>SECONDS</span>
+                <span>
+                    SECONDS
+                </span>
 
             </div>
 
@@ -262,57 +389,63 @@
 
 
 <!-- =========================================
-     LOVE STORY
+     STORY
 ========================================= -->
 
 <section id="story"
-         class="story-section section-cream">
+         class="story section-beige">
 
     <div class="container">
 
-        <div class="section-heading dark-heading"
+        <div class="section-title dark"
              data-aos="fade-up">
 
-            <span>OUR LOVE STORY</span>
+            <span>
+                OUR JOURNEY
+            </span>
 
             <h2>
-                A Journey Written
-                <br>
-                By Two Hearts
+                Written in
+                <i>the stars.</i>
             </h2>
 
         </div>
 
 
-        <div class="timeline">
+        <div class="story-list">
 
 
-            <!-- 2022 -->
-
-            <article class="timeline-item"
+            <article class="story-item"
                      data-aos="fade-up">
 
-                <div class="timeline-image">
+                <div class="story-number">
+                    01
+                </div>
 
-                    <img src="assets/images/story-2022.jpg"
-                         alt="First Meeting">
+                <div class="story-photo">
+
+                    <img src="assets/images/story-1.jpg"
+                         alt="Our First Meeting">
 
                 </div>
 
-                <div class="timeline-content">
+                <div class="story-text">
 
-                    <span>2022</span>
+                    <span>
+                        2022
+                    </span>
 
                     <h3>
                         THE FIRST MEETING
                     </h3>
 
                     <p>
-                        Semua cerita indah selalu dimulai
-                        dari sebuah pertemuan sederhana.
-                        Di tahun ini, dua insan bertemu
-                        dan tanpa disadari,
-                        sebuah cerita baru dimulai.
+
+                        Dari sebuah pertemuan kecil,
+                        kami tidak pernah tahu bahwa
+                        hari itu akan menjadi awal
+                        dari sebuah perjalanan besar.
+
                     </p>
 
                 </div>
@@ -320,33 +453,37 @@
             </article>
 
 
-            <!-- 2023 -->
-
-            <article class="timeline-item reverse"
+            <article class="story-item reverse"
                      data-aos="fade-up">
 
-                <div class="timeline-image">
+                <div class="story-number">
+                    02
+                </div>
 
-                    <img src="assets/images/story-2023.jpg"
-                         alt="Beginning">
+                <div class="story-photo">
+
+                    <img src="assets/images/story-2.jpg"
+                         alt="The Beginning">
 
                 </div>
 
-                <div class="timeline-content">
+                <div class="story-text">
 
-                    <span>2023</span>
+                    <span>
+                        2023
+                    </span>
 
                     <h3>
                         THE BEGINNING
                     </h3>
 
                     <p>
-                        Dari sebuah perkenalan,
-                        tumbuh rasa yang semakin dalam.
-                        Bersama melewati hari,
-                        berbagi cerita,
-                        dan mulai menulis perjalanan
-                        yang lebih panjang.
+
+                        Hari demi hari kami lewati.
+                        Tawa, cerita, dan perjalanan
+                        kecil yang membuat kami semakin
+                        mengenal satu sama lain.
+
                     </p>
 
                 </div>
@@ -354,32 +491,38 @@
             </article>
 
 
-            <!-- 2025 -->
-
-            <article class="timeline-item"
+            <article class="story-item"
                      data-aos="fade-up">
 
-                <div class="timeline-image">
+                <div class="story-number">
+                    03
+                </div>
 
-                    <img src="assets/images/story-2025.jpg"
-                         alt="Proposal">
+                <div class="story-photo">
+
+                    <img src="assets/images/story-3.jpg"
+                         alt="The Proposal">
 
                 </div>
 
-                <div class="timeline-content">
+                <div class="story-text">
 
-                    <span>2025</span>
+                    <span>
+                        2025
+                    </span>
 
                     <h3>
                         THE PROPOSAL
                     </h3>
 
                     <p>
-                        Sebuah keputusan untuk melangkah
-                        lebih jauh bersama.
-                        Dengan penuh keyakinan,
-                        kami memilih satu sama lain
-                        untuk menjadi teman hidup.
+
+                        Sebuah janji untuk berjalan
+                        bersama. Bukan karena perjalanan
+                        akan selalu mudah, tetapi karena
+                        kami memilih untuk melewatinya
+                        bersama.
+
                     </p>
 
                 </div>
@@ -387,32 +530,37 @@
             </article>
 
 
-            <!-- 2026 -->
-
-            <article class="timeline-item reverse"
+            <article class="story-item reverse"
                      data-aos="fade-up">
 
-                <div class="timeline-image">
+                <div class="story-number">
+                    04
+                </div>
 
-                    <img src="assets/images/story-2026.jpg"
-                         alt="Wedding">
+                <div class="story-photo">
+
+                    <img src="assets/images/story-4.jpg"
+                         alt="The Wedding">
 
                 </div>
 
-                <div class="timeline-content">
+                <div class="story-text">
 
-                    <span>2026</span>
+                    <span>
+                        2026
+                    </span>
 
                     <h3>
                         THE WEDDING
                     </h3>
 
                     <p>
-                        Hari yang telah kami nantikan.
-                        Sebuah awal dari perjalanan baru
-                        sebagai satu keluarga.
-                        Semoga cinta ini selalu tumbuh
-                        dan menjadi rumah bagi kami.
+
+                        Dan akhirnya, kami sampai
+                        pada hari yang telah lama
+                        kami nantikan. Hari ketika
+                        dua cerita menjadi satu.
+
                     </p>
 
                 </div>
@@ -427,53 +575,56 @@
 
 
 <!-- =========================================
-     BRIDE & GROOM
+     COUPLE
 ========================================= -->
 
-<section id="couple"
-         class="couple-section section-dark">
+<section class="couple-section">
 
     <div class="container">
 
-        <div class="section-heading"
+        <div class="section-title"
              data-aos="fade-up">
 
-            <span>THE COUPLE</span>
+            <span>
+                THE COUPLE
+            </span>
 
             <h2>
-                Two Hearts,
-                <br>
-                One Promise
+                Meet the
+                <i>two hearts.</i>
             </h2>
 
         </div>
 
 
-        <div class="couple-grid">
+        <div class="couple-editorial">
 
 
-            <!-- GROOM -->
-
-            <div class="person-card"
+            <div class="couple-person groom"
                  data-aos="fade-right">
 
-                <div class="person-image">
+                <div class="couple-photo">
 
-                    <img src="assets/images/groom.jpg"
-                         alt="Anang Ma'rup">
+                    <img src="assets/images/budi.jpg"
+                         alt="Budi Santoso">
 
                 </div>
 
-                <div class="person-info">
+                <div class="couple-info">
 
-                    <span>THE GROOM</span>
+                    <span>
+                        THE GROOM
+                    </span>
 
                     <h3>
-                        ANANG MA'RUP
+                        BUDI
+                        <small>
+                            SANTOSO
+                        </small>
                     </h3>
 
                     <p>
-                        Putra dari
+                        Putra tercinta dari
                         <br>
                         Bapak ........
                         <br>
@@ -485,36 +636,38 @@
             </div>
 
 
-            <div class="couple-symbol"
+            <div class="couple-center"
                  data-aos="zoom-in">
 
-                &
+                <div class="gold-circle">
+                    &
+                </div>
 
             </div>
 
 
-            <!-- BRIDE -->
-
-            <div class="person-card"
+            <div class="couple-person bride"
                  data-aos="fade-left">
 
-                <div class="person-image">
+                <div class="couple-photo">
 
-                    <img src="assets/images/bride.jpg"
-                         alt="Amelia">
+                    <img src="assets/images/leta.jpg"
+                         alt="Leta">
 
                 </div>
 
-                <div class="person-info">
+                <div class="couple-info">
 
-                    <span>THE BRIDE</span>
+                    <span>
+                        THE BRIDE
+                    </span>
 
                     <h3>
-                        AMELIA
+                        LETA
                     </h3>
 
                     <p>
-                        Putri dari
+                        Putri tercinta dari
                         <br>
                         Bapak ........
                         <br>
@@ -533,7 +686,7 @@
 
 
 <!-- =========================================
-     EVENTS
+     EVENT
 ========================================= -->
 
 <section id="event"
@@ -541,52 +694,61 @@
 
     <div class="container">
 
-        <div class="section-heading dark-heading"
+        <div class="section-title dark"
              data-aos="fade-up">
 
-            <span>JOIN US</span>
+            <span>
+                THE WEDDING DAY
+            </span>
 
             <h2>
-                Our Wedding Day
+                Come celebrate
+                <i>with us.</i>
             </h2>
+
+            <p>
+                Dengan penuh kebahagiaan,
+                kami menantikan kehadiran Anda
+                untuk menjadi bagian dari
+                awal perjalanan baru kami.
+            </p>
 
         </div>
 
 
-        <div class="event-grid">
+        <div class="event-editorial">
 
 
-            <!-- AKAD -->
+            <article class="event-card"
+                     data-aos="fade-up">
 
-            <div class="event-card"
-                 data-aos="fade-up">
-
-                <div class="event-icon">
-
-                    <i class="fa-solid fa-ring"></i>
-
+                <div class="event-symbol">
+                    I
                 </div>
 
-                <span class="event-label">
-                    AKAD NIKAH
+                <span>
+                    THE CEREMONY
                 </span>
 
-                <div class="event-date">
+                <h3>
+                    Akad Nikah
+                </h3>
 
-                    <strong>18</strong>
-
-                    <div>
-                        <span>AGUSTUS</span>
-                        <span>2026</span>
-                    </div>
-
+                <div class="event-date-large">
+                    18
                 </div>
 
-                <p class="event-time">
+                <div class="event-month">
+                    AUGUST 2026
+                </div>
+
+                <div class="event-line"></div>
+
+                <p>
                     09.00 WIB
                 </p>
 
-                <p class="event-location">
+                <p>
                     Masjid ........
                     <br>
                     Gresik, Jawa Timur
@@ -594,47 +756,47 @@
 
                 <a href="https://maps.google.com/?q=Masjid+Gresik+Jawa+Timur"
                    target="_blank"
-                   class="outline-button">
+                   class="text-link">
 
-                    LIHAT LOKASI
+                    GET DIRECTIONS
+                    <i class="fa-solid fa-arrow-right"></i>
 
                 </a>
 
-            </div>
+            </article>
 
 
-            <!-- RECEPTION -->
+            <article class="event-card featured"
+                     data-aos="fade-up"
+                     data-aos-delay="150">
 
-            <div class="event-card featured"
-                 data-aos="fade-up"
-                 data-aos-delay="150">
-
-                <div class="event-icon">
-
-                    <i class="fa-solid fa-champagne-glasses"></i>
-
+                <div class="event-symbol">
+                    II
                 </div>
 
-                <span class="event-label">
-                    RESEPSI
+                <span>
+                    THE CELEBRATION
                 </span>
 
-                <div class="event-date">
+                <h3>
+                    Resepsi
+                </h3>
 
-                    <strong>18</strong>
-
-                    <div>
-                        <span>AGUSTUS</span>
-                        <span>2026</span>
-                    </div>
-
+                <div class="event-date-large">
+                    18
                 </div>
 
-                <p class="event-time">
-                    11.00 - 14.00 WIB
+                <div class="event-month">
+                    AUGUST 2026
+                </div>
+
+                <div class="event-line"></div>
+
+                <p>
+                    11.00 — 14.00 WIB
                 </p>
 
-                <p class="event-location">
+                <p>
                     Gedung ........
                     <br>
                     Gresik, Jawa Timur
@@ -642,13 +804,14 @@
 
                 <a href="https://maps.google.com/?q=Gedung+Gresik+Jawa+Timur"
                    target="_blank"
-                   class="outline-button">
+                   class="text-link">
 
-                    LIHAT LOKASI
+                    GET DIRECTIONS
+                    <i class="fa-solid fa-arrow-right"></i>
 
                 </a>
 
-            </div>
+            </article>
 
         </div>
 
@@ -658,38 +821,32 @@
 
 
 <!-- =========================================
-     MAP
+     QUOTE
 ========================================= -->
 
-<section class="map-section">
+<section class="quote-section">
 
-    <div class="map-content">
+    <div class="quote-background"></div>
+
+    <div class="quote-overlay"></div>
+
+    <div class="quote-content"
+         data-aos="fade-up">
 
         <span>
-            LOCATION
+            OUR FAVORITE THOUGHT
         </span>
 
-        <h2>
-            Gedung Pernikahan
-        </h2>
+        <blockquote>
 
-        <p>
-            Gresik, Jawa Timur
-        </p>
+            "Wherever you are,
+            <br>
+            that's where
+            <i>home</i> is."
 
-        <a href="https://maps.google.com/?q=Gedung+Gresik+Jawa+Timur"
-           target="_blank"
-           class="gold-button">
-
-            <i class="fa-solid fa-location-dot"></i>
-
-            OPEN GOOGLE MAPS
-
-        </a>
+        </blockquote>
 
     </div>
-
-    <div class="map-background"></div>
 
 </section>
 
@@ -699,71 +856,66 @@
 ========================================= -->
 
 <section id="gallery"
-         class="gallery-section section-dark">
+         class="gallery-section section-cream">
 
     <div class="container">
 
-        <div class="section-heading"
+        <div class="section-title dark"
              data-aos="fade-up">
 
-            <span>OUR MOMENTS</span>
+            <span>
+                OUR MEMORIES
+            </span>
 
             <h2>
-                A Collection
-                <br>
-                Of Memories
+                Moments we
+                <i>cherish.</i>
             </h2>
 
         </div>
 
 
-        <div class="gallery-grid">
+        <div class="gallery">
 
-
-            <div class="gallery-item large">
+            <div class="gallery-item gallery-large">
 
                 <img src="assets/images/gallery-1.jpg"
-                     alt="Gallery 1">
+                     alt="Memory 1">
 
             </div>
-
 
             <div class="gallery-item">
 
                 <img src="assets/images/gallery-2.jpg"
-                     alt="Gallery 2">
+                     alt="Memory 2">
 
             </div>
-
 
             <div class="gallery-item">
 
                 <img src="assets/images/gallery-3.jpg"
-                     alt="Gallery 3">
+                     alt="Memory 3">
 
             </div>
-
 
             <div class="gallery-item">
 
                 <img src="assets/images/gallery-4.jpg"
-                     alt="Gallery 4">
+                     alt="Memory 4">
 
             </div>
 
-
-            <div class="gallery-item large">
+            <div class="gallery-item gallery-wide">
 
                 <img src="assets/images/gallery-5.jpg"
-                     alt="Gallery 5">
+                     alt="Memory 5">
 
             </div>
-
 
             <div class="gallery-item">
 
                 <img src="assets/images/gallery-6.jpg"
-                     alt="Gallery 6">
+                     alt="Memory 6">
 
             </div>
 
@@ -781,15 +933,12 @@
 <div id="lightbox"
      class="lightbox">
 
-    <button id="closeLightbox"
-            class="lightbox-close">
-
+    <button id="lightboxClose">
         <i class="fa-solid fa-xmark"></i>
-
     </button>
 
-    <button id="prevImage"
-            class="lightbox-nav prev">
+    <button id="lightboxPrev"
+            class="lightbox-arrow left">
 
         <i class="fa-solid fa-chevron-left"></i>
 
@@ -797,10 +946,10 @@
 
     <img id="lightboxImage"
          src=""
-         alt="Gallery Preview">
+         alt="Preview">
 
-    <button id="nextImage"
-            class="lightbox-nav next">
+    <button id="lightboxNext"
+            class="lightbox-arrow right">
 
         <i class="fa-solid fa-chevron-right"></i>
 
@@ -810,167 +959,232 @@
 
 
 <!-- =========================================
-     QUOTE
-========================================= -->
-
-<section class="quote-section">
-
-    <div class="quote-overlay"></div>
-
-    <div class="quote-content"
-         data-aos="fade-up">
-
-        <span>
-            A LOVE QUOTE
-        </span>
-
-        <blockquote>
-
-            "With you,
-            <br>
-            I have found the place
-            <br>
-            where I belong."
-
-        </blockquote>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
      RSVP
 ========================================= -->
 
 <section id="rsvp"
-         class="rsvp-section section-cream">
+         class="rsvp-section">
 
     <div class="container">
 
-        <div class="section-heading dark-heading">
+        <div class="section-title"
+             data-aos="fade-up">
 
-            <span>RSVP</span>
+            <span>
+                RSVP
+            </span>
 
             <h2>
-                Will You Join Us?
+                Will you celebrate
+                <i>with us?</i>
             </h2>
 
             <p>
-                Kehadiran dan doa restu Anda
-                merupakan kebahagiaan bagi kami.
+
+                Kehadiran Anda adalah hadiah
+                terindah yang dapat kami terima.
+
             </p>
 
         </div>
 
 
-        <form id="rsvpForm"
-              class="rsvp-form">
+        <div class="rsvp-layout">
 
 
-            <div class="form-group">
+            <!-- FORM -->
 
-                <label>
-                    Nama
-                </label>
+            <div class="rsvp-card"
+                 data-aos="fade-right">
 
-                <input type="text"
-                       id="rsvpName"
-                       placeholder="Masukkan nama Anda"
-                       required>
+                <div class="rsvp-card-top">
+
+                    <span>
+                        YOUR RSVP
+                    </span>
+
+                    <div>
+                        B & L
+                    </div>
+
+                </div>
+
+
+                <form id="rsvpForm">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            YOUR NAME
+                        </label>
+
+                        <input type="text"
+                               id="rsvpName"
+                               placeholder="Tulis nama Anda"
+                               required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            ATTENDANCE
+                        </label>
+
+                        <div class="attendance-options">
+
+
+                            <label class="attendance-option">
+
+                                <input type="radio"
+                                       name="attendance"
+                                       value="Hadir"
+                                       checked>
+
+                                <span>
+
+                                    <i class="fa-solid fa-check"></i>
+
+                                    YES, I'LL BE THERE
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="attendance-option">
+
+                                <input type="radio"
+                                       name="attendance"
+                                       value="Tidak Hadir">
+
+                                <span>
+
+                                    <i class="fa-solid fa-heart-crack"></i>
+
+                                    SORRY, I CAN'T MAKE IT
+
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            NUMBER OF GUESTS
+                        </label>
+
+                        <select id="guestCount">
+
+                            <option value="1">
+                                1 Guest
+                            </option>
+
+                            <option value="2">
+                                2 Guests
+                            </option>
+
+                            <option value="3">
+                                3 Guests
+                            </option>
+
+                            <option value="4">
+                                4 Guests
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            LEAVE A MESSAGE
+                        </label>
+
+                        <textarea id="rsvpMessage"
+                                  placeholder="Tuliskan doa dan pesan untuk Budi & Leta..."
+                                  rows="5"></textarea>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="luxury-button dark-button">
+
+                        SEND RSVP
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <div id="rsvpSuccess"
+                         class="success-message">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Terima kasih.
+                        Konfirmasi Anda telah diterima.
+
+                    </div>
+
+
+                </form>
 
             </div>
 
 
-            <div class="form-group">
+            <!-- RSVP INFO -->
 
-                <label>
-                    Kehadiran
-                </label>
+            <div class="rsvp-text"
+                 data-aos="fade-left">
 
-                <div class="radio-group">
+                <span>
+                    A NOTE FROM US
+                </span>
 
-                    <label class="radio-option">
+                <h3>
+                    Your presence
+                    means more than
+                    <i>you know.</i>
+                </h3>
 
-                        <input type="radio"
-                               name="attendance"
-                               value="Hadir"
-                               checked>
+                <p>
 
-                        <span>
-                            Hadir
-                        </span>
+                    Kami tahu bahwa setiap orang
+                    memiliki kesibukan dan perjalanan
+                    masing-masing.
 
-                    </label>
+                </p>
 
+                <p>
 
-                    <label class="radio-option">
+                    Karena itu, dapat bertemu dan
+                    berbagi kebahagiaan bersama Anda
+                    di hari istimewa ini akan menjadi
+                    kenangan yang sangat berarti bagi kami.
 
-                        <input type="radio"
-                               name="attendance"
-                               value="Tidak Hadir">
+                </p>
 
-                        <span>
-                            Tidak Hadir
-                        </span>
+                <div class="signature">
 
-                    </label>
+                    Budi <span>&</span> Leta
 
                 </div>
 
             </div>
 
-
-            <div class="form-group">
-
-                <label>
-                    Jumlah Tamu
-                </label>
-
-                <select id="guestCount">
-
-                    <option value="1">
-                        1 Orang
-                    </option>
-
-                    <option value="2">
-                        2 Orang
-                    </option>
-
-                    <option value="3">
-                        3 Orang
-                    </option>
-
-                    <option value="4">
-                        4 Orang
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Pesan
-                </label>
-
-                <textarea id="rsvpMessage"
-                          rows="5"
-                          placeholder="Tuliskan pesan Anda..."></textarea>
-
-            </div>
-
-
-            <button type="submit"
-                    class="gold-button">
-
-                KONFIRMASI KEHADIRAN
-
-            </button>
-
-        </form>
+        </div>
 
     </div>
 
@@ -978,114 +1192,143 @@
 
 
 <!-- =========================================
-     WEDDING WISHES
+     GUESTBOOK
 ========================================= -->
 
 <section id="wishes"
-         class="wishes-section section-dark">
+         class="guestbook section-beige">
 
     <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title dark"
+             data-aos="fade-up">
 
-            <span>WEDDING WISHES</span>
-
-            <h2>
-                Words From The Heart
-            </h2>
-
-        </div>
-
-
-        <div id="wishesList"
-             class="wishes-list">
-
-            <article class="wish-card">
-
-                <p>
-                    "Selamat menempuh hidup baru.
-                    Semoga menjadi keluarga
-                    yang penuh cinta dan kebahagiaan."
-                </p>
-
-                <strong>
-                    — Budi
-                </strong>
-
-            </article>
-
-
-            <article class="wish-card">
-
-                <p>
-                    "Semoga menjadi keluarga
-                    yang sakinah, mawaddah,
-                    warahmah."
-                </p>
-
-                <strong>
-                    — Andi
-                </strong>
-
-            </article>
-
-        </div>
-
-
-        <form id="wishForm"
-              class="wish-form">
-
-            <input type="text"
-                   id="wishName"
-                   placeholder="Nama Anda"
-                   required>
-
-            <textarea id="wishText"
-                      placeholder="Tuliskan ucapan..."
-                      required></textarea>
-
-            <button class="gold-button"
-                    type="submit">
-
-                KIRIM UCAPAN
-
-            </button>
-
-        </form>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     WEDDING GIFT
-========================================= -->
-
-<section class="gift-section section-cream">
-
-    <div class="container">
-
-        <div class="section-heading dark-heading">
-
-            <span>WEDDING GIFT</span>
+            <span>
+                WEDDING GUESTBOOK
+            </span>
 
             <h2>
-                Your Love Is Our Greatest Gift
+                Leave a little
+                <i>love.</i>
             </h2>
 
             <p>
-                Doa dan restu Anda adalah hadiah
-                terindah bagi kami.
+
+                Tuliskan doa, harapan,
+                dan pesan terbaik Anda
+                untuk perjalanan baru kami.
+
             </p>
 
         </div>
 
 
-        <div class="gift-card">
+        <div class="guestbook-layout">
 
-            <div class="bank-logo">
-                BCA
+
+            <!-- COMMENT FORM -->
+
+            <div class="message-card"
+                 data-aos="fade-right">
+
+                <h3>
+                    Write us a message
+                </h3>
+
+                <form id="wishForm">
+
+                    <input type="text"
+                           id="wishName"
+                           placeholder="Nama Anda"
+                           required>
+
+                    <textarea id="wishText"
+                              placeholder="Tulis pesan Anda..."
+                              required></textarea>
+
+                    <button type="submit"
+                            class="luxury-button dark-button">
+
+                        POST MESSAGE
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- COMMENTS -->
+
+            <div class="comments-area"
+                 data-aos="fade-left">
+
+                <div class="comments-header">
+
+                    <span>
+                        FROM OUR LOVED ONES
+                    </span>
+
+                    <strong id="commentCount">
+                        0 MESSAGES
+                    </strong>
+
+                </div>
+
+
+                <div id="commentsList">
+
+                    <!-- JS -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     GIFT
+========================================= -->
+
+<section class="gift-section">
+
+    <div class="container">
+
+        <div class="section-title"
+             data-aos="fade-up">
+
+            <span>
+                WEDDING GIFT
+            </span>
+
+            <h2>
+                Your love is
+                <i>enough.</i>
+            </h2>
+
+            <p>
+
+                Doa dan kehadiran Anda
+                adalah hadiah paling indah
+                bagi kami.
+
+            </p>
+
+        </div>
+
+
+        <div class="gift-card"
+             data-aos="zoom-in">
+
+            <div class="gift-icon">
+                ✦
             </div>
 
             <span>
@@ -1093,23 +1336,27 @@
             </span>
 
             <h3>
-                nama
+                BUDI SANTOSO
             </h3>
 
             <strong id="accountNumber">
                 1234567890
             </strong>
 
+            <small>
+                BCA
+            </small>
+
             <button id="copyAccount"
-                    class="outline-button">
+                    class="copy-button">
 
                 <i class="fa-regular fa-copy"></i>
 
-                SALIN NOMOR REKENING
+                COPY ACCOUNT NUMBER
 
             </button>
 
-            <p id="copyMessage"></p>
+            <div id="copyMessage"></div>
 
         </div>
 
@@ -1119,43 +1366,42 @@
 
 
 <!-- =========================================
-     LIVE STREAM
+     CLOSING
 ========================================= -->
 
-<section class="live-section section-dark">
+<section class="closing">
 
-    <div class="container">
+    <div class="closing-background"></div>
 
-        <div class="live-icon">
+    <div class="closing-overlay"></div>
 
-            <i class="fa-solid fa-video"></i>
-
-        </div>
+    <div class="closing-content"
+         data-aos="fade-up">
 
         <span>
-            LIVE WEDDING
+            UNTIL WE MEET
         </span>
 
         <h2>
-            Celebrate With Us
-            <br>
-            From Anywhere
+            BUDI
+            <i>&</i>
+            LETA
         </h2>
 
         <p>
-            Saksikan momen bahagia kami
-            secara langsung.
+
+            Terima kasih telah menjadi
+            bagian dari cerita kami.
+
         </p>
 
-        <a href="https://youtube.com/"
-           target="_blank"
-           class="gold-button">
+        <div class="closing-date">
+            18 • 08 • 2026
+        </div>
 
-            <i class="fa-brands fa-youtube"></i>
-
-            WATCH LIVE
-
-        </a>
+        <div class="heart">
+            ♥
+        </div>
 
     </div>
 
@@ -1166,53 +1412,30 @@
      FOOTER
 ========================================= -->
 
-<footer class="footer">
+<footer>
 
-    <div class="footer-content">
-
-        <span>
-            THANK YOU
-        </span>
-
-        <h2>
-            nama
-            <i>&</i>
-            nama
-        </h2>
-
-        <p>
-            Merupakan suatu kehormatan
-            bagi kami apabila Anda berkenan
-            hadir dan memberikan doa restu.
-        </p>
-
-        <div class="footer-date">
-
-            18 • 08 • 2026
-
-        </div>
-
-        <div class="made-with">
-
-            MADE WITH LOVE
-
-            <i class="fa-solid fa-heart"></i>
-
-        </div>
-
+    <div>
+        BUDI SANTOSO <span>&</span> LETA
     </div>
+
+    <small>
+        MADE WITH LOVE
+    </small>
 
 </footer>
 
 
+</main>
+
+
 <!-- =========================================
-     BOTTOM NAVIGATION
+     BOTTOM NAV
 ========================================= -->
 
-<nav class="bottom-nav">
+<nav class="bottom-navigation">
 
     <a href="#home"
-       class="nav-item active">
+       class="active">
 
         <i class="fa-solid fa-house"></i>
 
@@ -1222,9 +1445,7 @@
 
     </a>
 
-
-    <a href="#story"
-       class="nav-item">
+    <a href="#story">
 
         <i class="fa-solid fa-heart"></i>
 
@@ -1234,11 +1455,9 @@
 
     </a>
 
+    <a href="#event">
 
-    <a href="#event"
-       class="nav-item">
-
-        <i class="fa-solid fa-location-dot"></i>
+        <i class="fa-solid fa-calendar"></i>
 
         <span>
             EVENT
@@ -1246,9 +1465,17 @@
 
     </a>
 
+    <a href="#gallery">
 
-    <a href="#rsvp"
-       class="nav-item">
+        <i class="fa-solid fa-image"></i>
+
+        <span>
+            GALLERY
+        </span>
+
+    </a>
+
+    <a href="#rsvp">
 
         <i class="fa-solid fa-envelope"></i>
 
@@ -1258,91 +1485,14 @@
 
     </a>
 
-
-    <button id="menuButton"
-            class="nav-item">
-
-        <i class="fa-solid fa-bars"></i>
-
-        <span>
-            MENU
-        </span>
-
-    </button>
-
 </nav>
 
 
-<!-- =========================================
-     MENU DRAWER
-========================================= -->
-
-<div id="menuDrawer"
-     class="menu-drawer">
-
-    <button id="closeMenu"
-            class="close-menu">
-
-        <i class="fa-solid fa-xmark"></i>
-
-    </button>
-
-    <div class="drawer-content">
-
-        <span>
-            ELEGANCE
-        </span>
-
-        <h2>
-            NAMA
-            <i>&</i>
-            NAMA
-        </h2>
-
-
-        <a href="#home">
-            HOME
-        </a>
-
-        <a href="#story">
-            OUR STORY
-        </a>
-
-        <a href="#couple">
-            THE COUPLE
-        </a>
-
-        <a href="#event">
-            WEDDING EVENT
-        </a>
-
-        <a href="#gallery">
-            GALLERY
-        </a>
-
-        <a href="#rsvp">
-            RSVP
-        </a>
-
-        <a href="#wishes">
-            WISHES
-        </a>
-
-    </div>
-
-</div>
-
-
-</main>
-
-
-<!-- =========================================
-     AOS
-========================================= -->
+<!-- AOS -->
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-<!-- Main JS -->
+<!-- JS -->
 
 <script src="script.js"></script>
 
