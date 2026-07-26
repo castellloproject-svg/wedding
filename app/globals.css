@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #f8f5ef;
+  --ivory: #fcfaf5;
+  --dusty: #7893a1;
+  --dusty-dark: #4e6875;
+  --gold: #b99a5b;
+  --gold-light: #d8c28d;
+  --ink: #293a42;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-poppins), sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--gold);
+  color: white;
+}
+
+.luxury-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 90px 20px;
+}
+
+.section-inner {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.script-title {
+  font-family: var(--font-great-vibes), cursive;
+  color: var(--dusty-dark);
+  line-height: 1;
+}
+
+.display-title {
+  font-family: var(--font-playfair), serif;
+  letter-spacing: 0.05em;
+}
+
+.gold-line {
+  width: 70px;
+  height: 1px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+
+.marble-bg {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(255, 255, 255, 0.9) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      rgba(216, 194, 141, 0.08) 0%,
+      transparent 50%
+    );
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(185, 154, 91, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(41, 58, 66, 0.1);
+  border-radius: 24px;
+}
+
+.gold-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: white;
+  border: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.gold-button:hover {
+  transform: translateY(-3px);
+  background: #a5874c;
+  box-shadow: 0 12px 30px rgba(185, 154, 91, 0.3);
+}
+
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  color: var(--dusty-dark);
+  border: 1px solid rgba(185, 154, 91, 0.6);
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.outline-button:hover {
+  background: var(--gold);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.floral-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.floral-top-left {
+  top: -10px;
+  left: -30px;
+  width: 180px;
+}
+
+.floral-top-right {
+  top: -10px;
+  right: -30px;
+  width: 180px;
+  transform: scaleX(-1);
+}
+
+.floral-bottom-left {
+  bottom: -20px;
+  left: -30px;
+  width: 200px;
+  transform: scaleY(-1);
+}
+
+.floral-bottom-right {
+  bottom: -20px;
+  right: -30px;
+  width: 200px;
+  transform: scale(-1);
+}
+
+.input-luxury {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(185, 154, 91, 0.3);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 14px 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-luxury:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(185, 154, 91, 0.08);
+}
+
+.gallery-masonry {
+  columns: 2;
+  column-gap: 12px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+@media (min-width: 768px) {
+  .luxury-section {
+    padding: 120px 40px;
+  }
+
+  .gallery-masonry {
+    columns: 3;
+    column-gap: 18px;
+  }
+
+  .gallery-item {
+    margin-bottom: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .floral-top-left,
+  .floral-top-right {
+    width: 280px;
+  }
+
+  .floral-bottom-left,
+  .floral-bottom-right {
+    width: 300px;
+  }
+}
